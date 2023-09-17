@@ -1,5 +1,6 @@
 import mysql.connector
 from flask import Flask, make_response, jsonify, request
+import os
 
 
 mydb = mysql.connector.connect(
@@ -83,5 +84,8 @@ def delete_salgado(id):
         )
     )
 
+# Obtém a porta do ambiente ou usa a porta 5000 como padrão
+port = int(os.environ.get('PORT', 5000))
 
-app.run()
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=port)
