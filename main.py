@@ -10,7 +10,6 @@ mydb = mysql.connector.connect(
 )
 
 app = Flask(__name__)
-app.json.sort_keys = False #Desativa a ordenação alfabetica no json
 
 @app.route('/salgados', methods=['GET']) #Decorator
 def get_salgados():
